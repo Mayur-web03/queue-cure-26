@@ -59,3 +59,200 @@ More than 75% of small and medium clinics in India still rely on paper tokens an
 ---
 
 ## 📁 Project Structure
+queue-cure-26/
+
+│
+
+├── backend/
+
+│   ├── config/          # MongoDB connection
+
+│   ├── models/          # Mongoose schemas
+
+│   ├── routes/          # REST API routes
+
+│   ├── services/        # Business logic
+
+│   ├── sockets/         # Socket.IO handlers
+
+│   └── index.js         # Entry point
+
+│
+
+├── frontend/
+
+│   └── src/
+
+│       ├── components/  # React components
+
+│       ├── hooks/       # Custom hooks
+
+│       ├── services/    # API calls
+
+│       └── context/     # Queue context
+
+│
+
+└── docs/                # Architecture and API docs
+
+---
+
+## ⚙️ Setup & Installation
+
+### Prerequisites
+- Node.js v18+
+- MongoDB Atlas account
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/Mayur-web03/queue-cure-26.git
+cd queue-cure-26
+```
+
+### 2. Backend Setup
+
+```bash
+cd backend
+npm install
+```
+
+Create `.env` file inside `backend/`:
+
+```env
+MONGO_URI=your_mongodb_atlas_connection_string
+PORT=4000
+```
+
+Start backend:
+
+```bash
+node index.js
+```
+
+### 3. Frontend Setup
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+### 4. Open in browser
+Receptionist → http://localhost:5173/receptionist
+
+Patient      → http://localhost:5173/patient
+
+---
+
+## 🔌 Socket Events
+
+| Event | Direction | Description |
+|-------|-----------|-------------|
+| `add_patient` | Client → Server | Add patient to queue |
+| `call_next` | Client → Server | Call next token |
+| `mark_no_show` | Client → Server | Mark patient as no-show |
+| `reset_queue` | Client → Server | Reset entire queue |
+| `queue_update` | Server → All | Broadcast queue state |
+| `book_appointment` | Client → Server | Book appointment |
+| `appointment_arrived` | Client → Server | Mark appointment arrived |
+
+---
+
+## 📊 Database Collections
+
+| Collection | Purpose |
+|------------|---------|
+| `patients` | All patient records |
+| `queuepatients` | Active queue state |
+| `appointments` | Appointment management |
+| `consultations` | Consultation history |
+| `queuesettings` | Clinic configuration |
+
+---
+
+## 🧠 Smart Wait Time
+
+QueueCure calculates wait times from real consultation data:
+Estimated Wait = Position × Average Consultation Duration
+
+Average is computed from previously completed consultations — not hardcoded. Gets more accurate over time.
+
+---
+
+## 🏗 Architecture
+┌─────────────────────────┐
+
+│    Receptionist View    │
+
+│  React + Socket.IO      │
+
+└────────────┬────────────┘
+
+│ Socket Events
+
+▼
+
+┌─────────────────────────┐
+
+│   Node.js + Express     │
+
+│   Queue Engine          │
+
+│   Appointment Manager   │
+
+│   Analytics Engine      │
+
+└────────────┬────────────┘
+
+│ Mongoose ODM
+
+▼
+
+┌─────────────────────────┐
+
+│     MongoDB Atlas       │
+
+│  patients               │
+
+│  queuepatients          │
+
+│  appointments           │
+
+└────────────┬────────────┘
+
+│ Socket Broadcast
+
+▼
+
+┌─────────────────────────┐
+
+│     Patient Portal      │
+
+│  React + Socket.IO      │
+
+└─────────────────────────┘
+
+---
+
+## 🔮 Future Enhancements
+
+- [ ] QR-based patient check-in
+- [ ] SMS and WhatsApp notifications
+- [ ] Doctor dashboard
+- [ ] Multi-doctor clinic support
+- [ ] AI-powered wait time prediction
+- [ ] Cloud deployment
+- [ ] Role-based access control
+
+---
+
+## 👨‍💻 Built For
+
+> Hackathon Project 2026 — solving real-world clinic queue problems in India
+
+---
+
+## 📄 License
+
+MIT License — see [LICENSE](LICENSE) for details.
