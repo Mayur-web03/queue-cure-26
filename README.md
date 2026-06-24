@@ -1,4 +1,4 @@
-# QueueCure 🏥
+# QueueCure '26 🏥
 
 > Real-Time Digital Queue Management System for Clinics
 
@@ -8,23 +8,25 @@ QueueCure eliminates paper token slips and manual queue management from clinics 
 ![Node](https://img.shields.io/badge/node-v18+-brightgreen)
 ![MongoDB](https://img.shields.io/badge/database-MongoDB_Atlas-green)
 ![Socket.IO](https://img.shields.io/badge/realtime-Socket.IO-black)
-
----
-
-## 🚀 Live Demo
-
-| Interface | URL |
-|-----------|-----|
-| Receptionist Dashboard | `http://localhost:5173/receptionist` |
-| Patient Portal | `http://localhost:5173/patient` |
+![Built Solo](https://img.shields.io/badge/built%20by-solo%20developer-blueviolet)
 
 ---
 
 ## 🧩 Problem Statement
 
-More than 75% of small and medium clinics in India still rely on paper tokens and verbal announcements. Patients wait for hours without knowing their position. Receptionists struggle to manage walk-ins and appointments simultaneously.
+More than 75% of small and medium clinics in India still rely on paper tokens and verbal announcements. Patients wait for hours without knowing their position in the queue. Receptionists struggle to coordinate walk-in patients and appointments simultaneously — leading to chaos, delays, and frustrated patients.
 
-**QueueCure solves this.**
+**QueueCure solves this by replacing paper-based chaos with a real-time digital queue system.**
+
+---
+
+## 💡 Solution
+
+A full-stack real-time queue management platform where:
+
+- Receptionists generate tokens, manage appointments, and control the queue from a single dashboard
+- Patients track their token position, estimated wait time, and queue status live — without refreshing the page
+- Every action syncs instantly across all connected screens via Socket.IO
 
 ---
 
@@ -35,8 +37,10 @@ More than 75% of small and medium clinics in India still rely on paper tokens an
 - Call next patient with one click
 - Manage appointments — approve, reject, reschedule
 - Mark patients as no-show
-- Live queue monitoring
+- Live queue monitoring with search
+- QR code for patients to scan and track queue
 - Analytics — patients served, avg wait time, no-shows
+- Smart avg consultation time calculator
 
 ### Patient Portal
 - Track token position in real time
@@ -44,6 +48,7 @@ More than 75% of small and medium clinics in India still rely on paper tokens an
 - See how many patients are ahead
 - Receive live updates without refreshing
 - Queue progress stepper
+- Scan QR to open portal instantly
 
 ---
 
@@ -93,7 +98,7 @@ queue-cure-26/
 
 │
 
-└── docs/                # Architecture and API docs
+└── README.md
 
 ---
 
@@ -176,7 +181,7 @@ Patient      → http://localhost:5173/patient
 QueueCure calculates wait times from real consultation data:
 Estimated Wait = Position × Average Consultation Duration
 
-Average is computed from previously completed consultations — not hardcoded. Gets more accurate over time.
+Average is computed from previously completed consultations — not hardcoded. Gets more accurate as the clinic continues using the system.
 
 ---
 
@@ -281,6 +286,7 @@ Average is computed from previously completed consultations — not hardcoded. G
 - Real-time synchronization
 - Smart wait-time calculation
 - Token verification system
+<<<<<<< HEAD
 
 ---
 
@@ -291,12 +297,26 @@ QueueCure successfully transforms traditional paper-based clinic queue systems i
 The system enables receptionists to manage walk-in patients and appointments efficiently while allowing patients to track their queue position, waiting time, and token status from a live synchronized interface.
 
 By combining React, Node.js, Socket.IO, MongoDB Atlas, and Mongoose, QueueCure delivers a scalable, persistent, and real-time clinic queue management solution.
+=======
+ (Final QueueCure update with MongoDB, analytics and documentation)
 
 ---
 
-## 👨‍💻 Built For
+## 🎯 Project Outcome
 
-> Hackathon Project 2026 — solving real-world clinic queue problems in India
+QueueCure successfully transforms traditional paper-based clinic queue systems into a real-time digital platform.
+
+The system enables receptionists to manage walk-in patients and appointments efficiently while allowing patients to track their queue position, waiting time, and token status from a live synchronized interface.
+
+By combining React, Node.js, Socket.IO, MongoDB Atlas, and Mongoose, QueueCure delivers a scalable, persistent, and real-time clinic queue management solution.
+---
+
+## 👨‍💻 About
+
+**QueueCure '26** — Built solo for Hackathon 2026
+
+> One developer. One real problem. One weekend.
+> Built to fix the broken waiting room experience in Indian clinics.
 
 ---
 

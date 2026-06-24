@@ -39,13 +39,21 @@ async function initializeQueue() {
       }));
     }
 
-    const lastCompleted = await QueuePatient.findOne({
-      status: "served",
-    }).sort({ token: -1 });
+    const lastCalled = await QueuePatient.findOne({
+  status: "called",
+}).sort({ token: -1 });
 
-    if (lastCompleted) {
-      currentToken = lastCompleted.token;
-    }
+if (lastCalled) {
+  currentToken = lastCalled.token;
+} else {
+  const lastCompleted = await QueuePatient.findOne({
+    status: "served",
+  }).sort({ token: -1 });
+
+  if (lastCompleted) {
+    currentToken = lastCompleted.token;
+  }
+}
 
     console.log(`Queue initialized. Current token: ${currentToken}, Next: ${nextTokenNumber}`);
   } catch (err) {

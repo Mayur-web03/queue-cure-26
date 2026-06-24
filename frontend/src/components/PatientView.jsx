@@ -681,7 +681,7 @@ export default function PatientView() {
         {/* Sidebar */}
         <aside className="pv-sidebar">
           <div className="pv-sidebar-logo">
-            <div className="pv-logomark">H</div>
+            <div className="pv-logomark">Q</div>
             <span className="pv-sidebar-name">{CLINIC_NAME}</span>
           </div>
 

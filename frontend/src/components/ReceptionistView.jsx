@@ -32,8 +32,22 @@ export default function ReceptionistView() {
   const [showTheme, setShowTheme]       = useState(false);
   const [todayAppointments, setTodayAppointments] = useState([]);
 
-  const [consultationHistory, setConsultationHistory]       = useState([]);
-  const [currentPatientStartedAt, setCurrentPatientStartedAt] = useState(null);
+ const [consultationHistory, setConsultationHistory] = useState([]);
+const [currentPatientStartedAt, setCurrentPatientStartedAt] = useState(null);
+
+useEffect(() => {
+  const fetchAnalytics = async () => {
+    try {
+      const res = await fetch("http://localhost:4000/analytics/today");
+      const data = await res.json();
+      setServedToday(data.servedCount || 0);
+    } catch (err) {
+      console.error("Analytics fetch error:", err);
+    }
+  };
+
+  fetchAnalytics();
+}, []);
 
   useEffect(() => {
     const t = setInterval(() => setTime(new Date()), 1000);
@@ -107,9 +121,19 @@ export default function ReceptionistView() {
     }
 
     socket.emit("call_next");
-    setFlash(true);
-    setServedToday((p) => p + 1);
-    setTimeout(() => setFlash(false), 700);
+setFlash(true);
+setTimeout(() => setFlash(false), 700);
+
+// Fetch updated count from MongoDB
+setTimeout(async () => {
+  try {
+    const res = await fetch("http://localhost:4000/analytics/today");
+    const data = await res.json();
+    setServedToday(data.servedCount || 0);
+  } catch (err) {
+    console.error("Analytics fetch error:", err);
+  }
+}, 1000);
   };
 
   const handleNoShow = () => {
