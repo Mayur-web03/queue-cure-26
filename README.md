@@ -235,15 +235,62 @@ Average is computed from previously completed consultations — not hardcoded. G
 
 ---
 
-## 🔮 Future Enhancements
+## 🚀 Current Capabilities
 
-- [ ] QR-based patient check-in
-- [ ] SMS and WhatsApp notifications
-- [ ] Doctor dashboard
-- [ ] Multi-doctor clinic support
-- [ ] AI-powered wait time prediction
-- [ ] Cloud deployment
-- [ ] Role-based access control
+### Real-Time Queue Management
+- Generate tokens instantly
+- Call next patient
+- Live queue synchronization using Socket.IO
+- Queue persistence using MongoDB
+- Automatic queue recovery after server restart
+
+### Appointment Management
+- Book appointments
+- Approve appointments
+- Reject appointments
+- Reschedule appointments
+- Cancel appointments
+- Mark appointment arrivals
+- Automatically convert arrived appointments into queue tokens
+
+### Patient Tracking
+- Track token position in real time
+- View patients ahead in queue
+- View estimated waiting time
+- Live queue progress updates
+- Token persistence across refreshes
+
+### Analytics & Reporting
+- Total patients served
+- Average consultation duration
+- Average wait time
+- Active queue count
+- No-show tracking
+- Daily analytics dashboard
+
+### Database Features
+- MongoDB Atlas integration
+- Mongoose schema validation
+- Persistent patient records
+- Persistent appointment records
+- Persistent queue state
+
+### Reliability Features
+- No-show handling
+- Queue restoration after restart
+- Real-time synchronization
+- Smart wait-time calculation
+- Token verification system
+
+---
+
+## 🎯 Project Outcome
+
+QueueCure successfully transforms traditional paper-based clinic queue systems into a real-time digital platform.
+
+The system enables receptionists to manage walk-in patients and appointments efficiently while allowing patients to track their queue position, waiting time, and token status from a live synchronized interface.
+
+By combining React, Node.js, Socket.IO, MongoDB Atlas, and Mongoose, QueueCure delivers a scalable, persistent, and real-time clinic queue management solution.
 
 ---
 
