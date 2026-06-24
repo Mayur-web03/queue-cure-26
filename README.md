@@ -4,6 +4,11 @@
 
 QueueCure eliminates paper token slips and manual queue management from clinics by providing a live, synchronized queue system for receptionists and patients.
 
+![License](https://img.shields.io/badge/license-MIT-green)
+![Node](https://img.shields.io/badge/node-v18+-brightgreen)
+![MongoDB](https://img.shields.io/badge/database-MongoDB_Atlas-green)
+![Socket.IO](https://img.shields.io/badge/realtime-Socket.IO-black)
+
 ---
 
 ## 🚀 Live Demo
