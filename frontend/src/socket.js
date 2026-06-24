@@ -1,7 +1,6 @@
 // src/socket.js
 import { io } from "socket.io-client";
 
-// Connect to your backend server (adjust the port if yours is different)
-const socket = io("http://localhost:4000");
+const socket = io(import.meta.env.VITE_BACKEND_URL);
 
 export default socket;
